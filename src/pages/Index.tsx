@@ -9,7 +9,7 @@ import {
   categories,
   guides,
   latestJobs,
-} from "@/data/mockData";
+} from "@/data"; // Обновленный импорт из индексного файла
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
