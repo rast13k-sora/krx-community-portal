@@ -1,41 +1,56 @@
-
 import MainLayout from "@/components/layouts/MainLayout";
 import Hero from "@/components/home/Hero";
-import FeaturedProjects from "@/components/gallery/FeaturedProjects";
+import FeaturedProjects, {
+  ProjectCard,
+} from "@/components/gallery/FeaturedProjects";
 import CategoryList from "@/components/gallery/CategoryList";
-import { featuredProjects, latestProjects, categories, guides, latestJobs } from "@/data/mockData";
+import {
+  featuredProjects,
+  latestProjects,
+  categories,
+  guides,
+  latestJobs,
+} from "@/data/mockData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Briefcase, BookOpen, ArrowRight } from "lucide-react";
 
 const Index = () => {
   return (
     <MainLayout>
       <Hero />
-      
+
       <div className="container py-8">
-        <FeaturedProjects 
-          title="Популярные работы" 
-          projects={featuredProjects} 
+        <FeaturedProjects
+          title="Популярные работы"
+          projects={featuredProjects}
         />
-        
+
         <Tabs defaultValue="latest" className="mt-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-montserrat font-semibold">Последние добавления</h2>
+            <h2 className="text-xl font-montserrat font-semibold">
+              Последние добавления
+            </h2>
             <TabsList>
               <TabsTrigger value="latest">Работы</TabsTrigger>
               <TabsTrigger value="guides">Гайды</TabsTrigger>
               <TabsTrigger value="jobs">Вакансии</TabsTrigger>
             </TabsList>
           </div>
-          
+
           <TabsContent value="latest" className="mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {latestProjects.map((project) => (
                 <div key={project.id} className="animate-fade-in">
-                  <FeaturedProjects.ProjectCard {...project} className="w-full" />
+                  <ProjectCard {...project} className="w-full" />
                 </div>
               ))}
             </div>
@@ -48,20 +63,25 @@ const Index = () => {
               </Button>
             </div>
           </TabsContent>
-          
+
           <TabsContent value="guides" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {guides.map((guide) => (
-                <Card key={guide.id} className="animate-fade-in overflow-hidden">
+                <Card
+                  key={guide.id}
+                  className="animate-fade-in overflow-hidden"
+                >
                   <div className="aspect-video w-full overflow-hidden">
-                    <img 
-                      src={guide.image} 
-                      alt={guide.title} 
+                    <img
+                      src={guide.image}
+                      alt={guide.title}
                       className="h-full w-full object-cover transition-transform hover:scale-105 duration-300"
                     />
                   </div>
                   <CardHeader className="pb-2">
-                    <CardTitle className="line-clamp-2 text-lg">{guide.title}</CardTitle>
+                    <CardTitle className="line-clamp-2 text-lg">
+                      {guide.title}
+                    </CardTitle>
                     <CardDescription className="flex items-center gap-2">
                       <BookOpen className="h-4 w-4" />
                       <span>Гайд</span>
@@ -69,7 +89,7 @@ const Index = () => {
                   </CardHeader>
                   <CardContent className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <img 
+                      <img
                         src={guide.author.avatar}
                         alt={guide.author.name}
                         className="h-6 w-6 rounded-full"
@@ -92,7 +112,7 @@ const Index = () => {
               </Button>
             </div>
           </TabsContent>
-          
+
           <TabsContent value="jobs" className="mt-0">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {latestJobs.map((job) => (
@@ -100,8 +120,12 @@ const Index = () => {
                   <CardHeader className="pb-2">
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle className="line-clamp-1 text-lg">{job.title}</CardTitle>
-                        <CardDescription className="line-clamp-1">{job.company}</CardDescription>
+                        <CardTitle className="line-clamp-1 text-lg">
+                          {job.title}
+                        </CardTitle>
+                        <CardDescription className="line-clamp-1">
+                          {job.company}
+                        </CardDescription>
                       </div>
                       <Briefcase className="h-5 w-5 text-primary" />
                     </div>
@@ -141,7 +165,7 @@ const Index = () => {
             </div>
           </TabsContent>
         </Tabs>
-        
+
         <CategoryList
           title="Категории"
           categories={categories}
