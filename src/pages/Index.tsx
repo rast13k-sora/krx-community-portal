@@ -1,7 +1,8 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import Hero from "@/components/home/Hero";
-import FeaturedProjects from "@/components/gallery/FeaturedProjects";
-import ProjectCard from "@/components/gallery/ProjectCard";
+import FeaturedProjects, {
+  ProjectCard,
+} from "@/components/gallery/FeaturedProjects";
 import CategoryList from "@/components/gallery/CategoryList";
 import {
   featuredProjects,
@@ -9,7 +10,7 @@ import {
   categories,
   guides,
   latestJobs,
-} from "@/data"; // Обновленный импорт из индексного файла
+} from "@/data/mockData";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
