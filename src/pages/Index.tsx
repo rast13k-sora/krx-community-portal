@@ -1,8 +1,7 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import Hero from "@/components/home/Hero";
-import FeaturedProjects, {
-  ProjectCard,
-} from "@/components/gallery/FeaturedProjects";
+import FeaturedProjects from "@/components/gallery/FeaturedProjects";
+import ProjectCard from "@/components/gallery/ProjectCard";
 import CategoryList from "@/components/gallery/CategoryList";
 import {
   featuredProjects,
